@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Request Dispatcher Example</title>
+<style>
+.input-container {
+    position: relative;
+    width: 300px;
+}
+
+.animated-placeholder {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.placeholder-text {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid;
+    animation: typing 4s steps(20) infinite, blink .75s step-end infinite;
+}
+
+.input-container input:focus + .placeholder-text,
+.input-container input:not(:placeholder-shown) + .placeholder-text {
+    display: none;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: black; }
+}
+
+button {
+    color: black;
+    font-size: 2rem;
+    padding: 2px 4px;
+    background: #0cedc0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 5px #0cedc0;
+    transition: 0.7s;
+}
+
+button:hover {
+    box-shadow: 0 0 5px #0cedc0, 0 0 5px #0cedc0, 0 0 50px #0cedc0, 0 0 100px #0cedc0;
+}
+
+textarea {
+    width: 30%;
+    height: 75px;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+</style>
+</head>
+<body bgcolor="#e5eb34">
+<form action="pd" method="post">
+<table>
+<tr>
+<td>Product Name</td>
+<td>
+    <div class="input-container">
+        <input type="text" name="pn" id="animated-placeholder-name" class="animated-placeholder" placeholder=" " />
+        <label for="animated-placeholder-name" class="placeholder-text">Enter product Name :</label>
+    </div>
+</td>
+</tr>
+<tr>
+<td>Product Quantity</td>
+<td>
+    <div class="input-container">
+        <input type="text" name="pq" id="animated-placeholder-quantity" class="animated-placeholder" placeholder=" " />
+        <label for="animated-placeholder-quantity" class="placeholder-text">Enter Quantity :</label>
+    </div>
+</td>
+</tr>
+<tr>
+<td><button type="submit" value="forward">Buy</button></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
